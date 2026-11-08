@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scripting API — PlaySync Pro — ByteLura</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <span class="product">PlaySync Pro</span>
+  <span class="tagline">Play Mode changes, kept — a Unity editor extension by ByteLura</span>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="nav-label">Documentation</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quick-start.html">Quick Start</a>
+      <a href="features.html">Features</a>
+      <a href="workflows.html">Workflows &amp; Tips</a>
+      <a href="scripting-api.html" class="active">Scripting API</a>
+      <a href="compatibility.html">Compatibility &amp; Limits</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="side-note">
+      PlaySync Pro is a ByteLura product.<br>
+      Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Scripting API &amp; Attributes</h1>
+    <p class="lede">Two integration surfaces: the <code>[AutoSavePlayMode]</code> attribute for your runtime scripts, and the <code>PlaySyncSession</code> editor API for custom editor tooling.</p>
+
+    <h2>1. The [AutoSavePlayMode] attribute</h2>
+    <p>Decorating a custom MonoBehaviour class — or individual fields — with <code>[AutoSavePlayMode]</code> instructs PlaySync Pro to automatically persist those variables on Play Mode exit, with no staging step. Namespace:</p>
+    <pre><code>using ByteLura.PlaySync;</code></pre>
+
+    <h3>Example A — class-level auto-save (all fields persist)</h3>
+    <pre><code>[AutoSavePlayMode]
+public class CharacterStats : MonoBehaviour
+{
+    public float maxHealth = 100f;
+    public float moveSpeed = 12.5f;
+}</code></pre>
+
+    <h3>Example B — field-level auto-save (selective fields persist)</h3>
+    <pre><code>public class WeaponGun : MonoBehaviour
+{
+    [AutoSavePlayMode]
+    public float fireRate = 0.12f;
+
+    [AutoSavePlayMode]
+    public Vector3 muzzleOffset = new Vector3(0f, 0.2f, 0.8f);
+
+    // This field will NOT auto-save (handled via the staging window):
+    public int currentAmmo = 30;
+}</code></pre>
+    <p>Fields without the attribute are not lost — they go through the normal review-and-commit flow in the Quick Restore Window and Studio.</p>
+
+    <h2>2. Editor scripting API</h2>
+    <p>Integrate PlaySync Pro directly into custom editor workflows and build scripts:</p>
+    <pre><code>#if UNITY_EDITOR
+using ByteLura.PlaySync.Editor;
+#endif</code></pre>
+    <pre><code>// 1. Get the total number of pending staged changes:
+int pendingCount = PlaySyncSession.GetPendingChangeCount();
+
+// 2. Commit all safe staged changes with Undo support:
+PlaySyncSession.RestoreAllSafe();
+
+// 3. Discard all currently staged changes:
+PlaySyncSession.DiscardAll();
+
+// 4. Save the current staged state as a ScriptableObject preset:
+PlaySyncPreset newPreset = PlaySyncSession.SaveCurrentAsPreset(
+    "Combat_Tuning_V1",
+    "Increased fire rate and reduced recoil.");</code></pre>
+
+    <h2>3. Lifecycle event hooks</h2>
+    <p>Subscribe to session events in custom editor scripts:</p>
+    <pre><code>#if UNITY_EDITOR
+using UnityEditor;
+using UnityEngine;
+using ByteLura.PlaySync.Editor;
+
+[InitializeOnLoad]
+public static class CustomPlaySyncHooks
+{
+    static CustomPlaySyncHooks()
+    {
+        PlaySyncSession.OnChangesDetected += (count) =&gt; {
+            Debug.Log("[PlaySync] Captured " + count + " changes on Play Mode exit.");
+        };
+
+        PlaySyncSession.OnChangesCommitted += (count) =&gt; {
+            Debug.Log("[PlaySync] Successfully committed " + count + " properties to scene.");
+        };
+    }
+}
+#endif</code></pre>
+
+    <footer class="site-footer">
+      PlaySync Pro · A ByteLura product · Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a> · Documentation for product release 1.0.1
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>

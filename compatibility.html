@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compatibility &amp; Limits — PlaySync Pro — ByteLura</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <span class="product">PlaySync Pro</span>
+  <span class="tagline">Play Mode changes, kept — a Unity editor extension by ByteLura</span>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="nav-label">Documentation</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quick-start.html">Quick Start</a>
+      <a href="features.html">Features</a>
+      <a href="workflows.html">Workflows &amp; Tips</a>
+      <a href="scripting-api.html">Scripting API</a>
+      <a href="compatibility.html" class="active">Compatibility &amp; Limits</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="side-note">
+      PlaySync Pro is a ByteLura product.<br>
+      Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Compatibility &amp; Honest Limits</h1>
+    <p class="lede">What PlaySync Pro runs on, and — stated plainly — what it does not do. Everything on this page comes from the product's own compatibility specifications and guides.</p>
+
+    <h2>Compatibility</h2>
+    <table>
+      <tr><th>Area</th><th>Specification</th></tr>
+      <tr><td>Unity versions</td><td>Unity 2021.3 LTS, Unity 2022.3 LTS, Unity 6 (6000.x) and later</td></tr>
+      <tr><td>Render pipelines</td><td>Universal RP (URP), High Definition RP (HDRP), Built-in RP</td></tr>
+      <tr><td>Operating systems</td><td>Windows 10/11, macOS (Intel &amp; Apple Silicon), Linux</td></tr>
+      <tr><td>Dependencies</td><td>Zero external DLLs or third-party packages required</td></tr>
+      <tr><td>Player builds</td><td>Fully stripped from player builds; zero runtime overhead</td></tr>
+    </table>
+
+    <h2>Honest limits</h2>
+    <ul>
+      <li><strong>It is an editor tool, not a save system.</strong> PlaySync Pro's tools run exclusively in the Unity Editor — they persist Play Mode tweaks into your scene during development. This is not a runtime save-game system for players. What reaches a build is limited to the <code>[AutoSavePlayMode]</code> attribute and the preset containers, which compile cleanly with zero overhead.</li>
+      <li><strong>The restore popup is conditional.</strong> The Quick Restore Window only triggers when active serialized changes were detected during playback. If nothing changed, nothing appears. If it should have appeared, check that "Auto-Open Restore Window" is enabled in Auto-Save Settings.</li>
+      <li><strong>History is local and finite.</strong> The Flight Recorder keeps the previous 25 sessions, stored as JSON in <code>[Project]/Library/PlaySyncHistory/</code> on your machine only. It is a working safety net, not an archive — and because it lives in Library/, it is never committed to your repository.</li>
+      <li><strong>Prefab restores go to the instance.</strong> Restoring a prefab instance's tweaks writes to the scene instance without breaking the prefab link. Applying those overrides to the source prefab asset itself is done with Unity's standard Inspector controls, not by PlaySync.</li>
+      <li><strong>Live polling is off unless you turn it on.</strong> Since release 1.0.1, live background polling in Play Mode is opt-in and off by default. On very large projects, narrowing the Tracking Scope (Active Selection Only, or Marked Attributes Only) is the documented way to keep tracking overhead at zero.</li>
+      <li><strong>What gets tracked is serialized state.</strong> The diff covers Transforms, colliders, lights, cameras, audio, and serialized MonoBehaviour fields. Changes with no serialized representation have nothing to stage.</li>
+    </ul>
+
+    <h2>What changed in 1.0.1</h2>
+    <p>Release 1.0.1 is a performance and control patch: it removed a slow global-ID lookup from Inspector and repaint loops (editor GUI overhead dropped from over 25&nbsp;ms to under 0.001&nbsp;ms), removed a project-wide ScriptableObject scan that could freeze scene transitions in massive projects, added the three Tracking Scopes, added master toggles for the Inspector banner, hierarchy highlights, SceneView HUD, and live polling, and made polling opt-in. The full release history is on the <a href="support.html">Support</a> page.</p>
+
+    <footer class="site-footer">
+      PlaySync Pro · A ByteLura product · Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a> · Documentation for product release 1.0.1
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>

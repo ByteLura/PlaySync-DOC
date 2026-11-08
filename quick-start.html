@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick Start — PlaySync Pro — ByteLura</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <span class="product">PlaySync Pro</span>
+  <span class="tagline">Play Mode changes, kept — a Unity editor extension by ByteLura</span>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="nav-label">Documentation</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quick-start.html" class="active">Quick Start</a>
+      <a href="features.html">Features</a>
+      <a href="workflows.html">Workflows &amp; Tips</a>
+      <a href="scripting-api.html">Scripting API</a>
+      <a href="compatibility.html">Compatibility &amp; Limits</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="side-note">
+      PlaySync Pro is a ByteLura product.<br>
+      Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Quick Start</h1>
+    <p class="lede">From import to your first committed change in about five minutes, using the interactive sandbox demo scene that ships with the package.</p>
+
+    <h2>Step 1 — Open the interactive demo scene</h2>
+    <ol>
+      <li>Open Unity and go to <span class="menu-path">Tools &gt; ByteLura &gt; PlaySync &gt; Welcome &amp; Hub</span>.</li>
+      <li>In the Welcome Hub, click <strong>Create Interactive Demo Scene</strong>.</li>
+      <li>Unity generates a clean sandbox scene with interactive test objects:
+        <ul>
+          <li><strong>Modify Me (Cube)</strong> — Transform, BoxCollider, and MeshRenderer.</li>
+          <li><strong>Modify Me (Sphere)</strong> — physics bouncing material, Transform, SphereCollider.</li>
+          <li><strong>Sample Character</strong> — a custom MonoBehaviour with MoveSpeed and JumpForce fields.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>Step 2 — Enter Play Mode and tweak values</h2>
+    <ol>
+      <li>Press the Unity Play button (or <kbd>Ctrl+P</kbd> / <kbd>Cmd+P</kbd>).</li>
+      <li>Select <strong>Modify Me (Cube)</strong> in the Hierarchy:
+        <ul>
+          <li>Move its Position to a new location in the Scene view.</li>
+          <li>Rotate its Rotation by 45 degrees.</li>
+          <li>In its BoxCollider component, change Size from (1, 1, 1) to (2, 1.5, 3).</li>
+        </ul>
+      </li>
+      <li>Select <strong>Sample Character</strong>:
+        <ul>
+          <li>Change Move Speed from 5.0 to 14.5.</li>
+          <li>Change Jump Force from 7.0 to 12.0.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>Step 3 — Exit Play Mode and review the staging window</h2>
+    <ol>
+      <li>Press Stop to exit Play Mode.</li>
+      <li>The Quick Restore Window pops up automatically.</li>
+      <li>Inspect the organized change tree:
+        <ul>
+          <li>Color-coded transitions show WAS (original) → NOW (runtime tweak).</li>
+          <li>Filter by category: All, Transforms, Scripts, Components.</li>
+          <li>Check or uncheck specific properties to choose exactly what persists.</li>
+        </ul>
+      </li>
+    </ol>
+    <div class="callout">
+      <strong>No window appeared?</strong>
+      The Quick Restore Window only triggers when active serialized changes were detected during playback. See the <a href="support.html">Support</a> page for what to check.
+    </div>
+
+    <h2>Step 4 — Commit to the Edit Mode scene, with Undo</h2>
+    <ol>
+      <li>Click <strong>Apply Selected Changes</strong> (or <strong>Restore All Safe</strong>).</li>
+      <li>Your runtime position, collider, and script tweaks are now permanently saved into your active Edit Mode scene.</li>
+      <li>Press <kbd>Ctrl+Z</kbd> / <kbd>Cmd+Z</kbd> at any time: PlaySync Pro registers every change with Unity's native Undo system, so a commit can always be reverted.</li>
+    </ol>
+
+    <h2>Tips for daily usage</h2>
+    <ul>
+      <li><strong>Testing multiple configurations before deciding?</strong> Click <strong>Save as Preset</strong> to store the changes in your Preset Vault and compare them later with one click.</li>
+      <li><strong>Want real-time diffs during gameplay?</strong> Keep the PlaySync Studio window (<kbd>Ctrl+Alt+S</kbd> / <kbd>Cmd+Option+S</kbd>) docked next to your Game view.</li>
+      <li><strong>All tools live in one place:</strong> <span class="menu-path">Tools &gt; ByteLura &gt; PlaySync</span> — Studio, Quick Restore Window, Preset Vault, Flight Recorder, Auto-Save Settings, and the Welcome &amp; Hub.</li>
+    </ul>
+
+    <footer class="site-footer">
+      PlaySync Pro · A ByteLura product · Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a> · Documentation for product release 1.0.1
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>

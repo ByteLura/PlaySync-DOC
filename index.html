@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PlaySync Pro — Documentation — ByteLura</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <span class="product">PlaySync Pro</span>
+  <span class="tagline">Play Mode changes, kept — a Unity editor extension by ByteLura</span>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="nav-label">Documentation</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="quick-start.html">Quick Start</a>
+      <a href="features.html">Features</a>
+      <a href="workflows.html">Workflows &amp; Tips</a>
+      <a href="scripting-api.html">Scripting API</a>
+      <a href="compatibility.html">Compatibility &amp; Limits</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="side-note">
+      PlaySync Pro is a ByteLura product.<br>
+      Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Tweak in Play Mode. Keep what works.</h1>
+    <p class="lede">PlaySync Pro is a Unity Editor extension that bridges the gap between Play Mode experimentation and Edit Mode permanence. Changes you make while the game is running no longer vanish when you press Stop — you review them, choose what to keep, and commit exactly those changes back into your Edit Mode scene.</p>
+
+    <h2>What it does</h2>
+    <p>While you play, PlaySync Pro tracks changes to Transforms, physics colliders, lights, cameras, audio, and your own MonoBehaviour fields. When you exit Play Mode, those changes are staged for review instead of being thrown away:</p>
+    <ul>
+      <li><strong>Diff before you commit.</strong> Every staged change is shown as WAS (the Edit Mode value) next to NOW (the Play Mode value), so nothing is applied blind.</li>
+      <li><strong>Commit selectively.</strong> Apply a single field, one GameObject, a category, or everything safe at once — from the staging window, the Studio workbench, or directly in the Inspector.</li>
+      <li><strong>Native Undo safety.</strong> Every restore operation is registered with Unity's own Undo system. A mistaken commit is one <kbd>Ctrl+Z</kbd> / <kbd>Cmd+Z</kbd> away from being reverted.</li>
+      <li><strong>Keep configurations as presets.</strong> Whole balance setups can be saved as ScriptableObject preset assets and swapped instantly for A/B testing.</li>
+      <li><strong>A local safety net.</strong> The Flight Recorder keeps your previous 25 play sessions on your own machine, so a configuration from an earlier run can be revisited and restored.</li>
+    </ul>
+
+    <h2>Who it is for</h2>
+    <ul>
+      <li><strong>Game balancers</strong> tuning movement, recoil, and stats live, who need to compare several feels without duplicating scenes.</li>
+      <li><strong>Level designers and lighting artists</strong> who reposition props, colliders, and lights while walking through the level.</li>
+      <li><strong>Teams on large projects</strong> who need change reports for reviews, and tracking scopes that keep editor overhead at zero on heavy scenes.</li>
+    </ul>
+
+    <h2>The eight modules at a glance</h2>
+    <div class="card-grid">
+      <div class="card"><h3>PlaySync Studio</h3><p>The 6-tab master workbench with the live WAS vs NOW diff tree and granular commits.</p></div>
+      <div class="card"><h3>Quick Restore Window</h3><p>Pops up automatically when you exit Play Mode, with a conflict guard and 1-click safe restore.</p></div>
+      <div class="card"><h3>Inspector Integration</h3><p>Status banner and Apply Now on modified GameObjects, a SceneView HUD, and right-click patch copy.</p></div>
+      <div class="card"><h3>Preset Vault</h3><p>Balance configurations as ScriptableObject assets — instant A/B swaps, multi-scene, version-control friendly.</p></div>
+      <div class="card"><h3>Flight Recorder</h3><p>An automatic local history of your last 25 play sessions, stored outside your repository.</p></div>
+      <div class="card"><h3>Auto-Save Rule Matrix</h3><p>Zero-click persistence rules by component type, GameObject tag, or the <code>[AutoSavePlayMode]</code> attribute.</p></div>
+      <div class="card"><h3>C# Patch Generator</h3><p>Turns runtime tweaks into clean, formatted C# assignment code you can paste into your scripts.</p></div>
+      <div class="card"><h3>HTML Change Reports</h3><p>Standalone dark-themed reports with category statistics and WAS vs NOW tables, ready to share with a team.</p></div>
+    </div>
+    <p>Full detail on every module is on the <a href="features.html">Features</a> page.</p>
+
+    <h2>Honest scope</h2>
+    <p>PlaySync Pro is an editor tool. The tools themselves run exclusively in the Unity Editor; the <code>[AutoSavePlayMode]</code> attribute and preset containers compile cleanly into runtime builds with zero overhead, and the extension is stripped from player builds. Flight Recorder history is stored locally in your project's <code>Library/PlaySyncHistory/</code> folder — it never enters your repository. The full, unvarnished list of limits is on the <a href="compatibility.html">Compatibility &amp; Limits</a> page.</p>
+
+    <div class="callout">
+      <strong>New to PlaySync Pro?</strong>
+      The <a href="quick-start.html">Quick Start</a> walks you from opening the included demo scene to your first committed change in about five minutes.
+    </div>
+
+    <h2>Support</h2>
+    <p>Questions, bug reports, and compatibility questions go to <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a>. The <a href="support.html">Support</a> page also answers the most common questions.</p>
+
+    <footer class="site-footer">
+      PlaySync Pro · A ByteLura product · Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a> · Documentation for product release 1.0.1
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — PlaySync Pro — ByteLura</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <span class="product">PlaySync Pro</span>
+  <span class="tagline">Play Mode changes, kept — a Unity editor extension by ByteLura</span>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="nav-label">Documentation</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quick-start.html">Quick Start</a>
+      <a href="features.html">Features</a>
+      <a href="workflows.html">Workflows &amp; Tips</a>
+      <a href="scripting-api.html">Scripting API</a>
+      <a href="compatibility.html">Compatibility &amp; Limits</a>
+      <a href="support.html" class="active">Support</a>
+    </nav>
+    <div class="side-note">
+      PlaySync Pro is a ByteLura product.<br>
+      Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Support</h1>
+    <p class="lede">PlaySync Pro is a ByteLura product. For help, write to us directly — one address covers questions, bug reports, and compatibility questions.</p>
+
+    <div class="callout">
+      <strong>Support email</strong>
+      <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a>
+    </div>
+    <p>When you write in about a problem, including your Unity version and a short description of what you changed in Play Mode and what you expected on exit makes the reply faster and more precise.</p>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>Does PlaySync Pro work in standalone builds?</h3>
+    <p>The tools run exclusively in the Unity Editor. The <code>[AutoSavePlayMode]</code> attribute and PlaySyncPreset containers compile cleanly into runtime builds with zero overhead.</p>
+
+    <h3>Why didn't the Quick Restore Window pop up when I exited Play Mode?</h3>
+    <p>The popup only triggers if active serialized changes were detected during playback. You can also verify that "Auto-Open Restore Window" is checked in Auto-Save Settings.</p>
+
+    <h3>Where are Flight Recorder history files stored?</h3>
+    <p>In <code>[Project]/Library/PlaySyncHistory/</code>. They stay local to your machine and do not pollute your Git repository.</p>
+
+    <h3>How can I reach support?</h3>
+    <p>Send an email to <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a>.</p>
+
+    <h2>Release notes</h2>
+
+    <h3>Version 1.0.1 — performance patch</h3>
+    <ul>
+      <li><strong>Performance:</strong> eliminated a synchronous slow global-ID call from Inspector header and GUI repaint loops, dropping editor GUI overhead from over 25&nbsp;ms to under 0.001&nbsp;ms.</li>
+      <li><strong>Performance:</strong> removed a project-wide ScriptableObject scan that caused scene-transition freezes in massive projects (the class of project typified by large controller and behaviour-tree suites).</li>
+      <li><strong>Feature:</strong> Tracking Scopes — "All Scene Objects", "Active Selection Only", and "Marked Attributes Only" — for instant zero-overhead tracking in complex scenes.</li>
+      <li><strong>Feature:</strong> master user toggles in Settings for the Inspector banner, hierarchy highlights, SceneView HUD, and live Play Mode background polling.</li>
+      <li><strong>Performance:</strong> live background polling in Play Mode is now opt-in and off by default, guaranteeing zero CPU and frame impact during gameplay testing.</li>
+    </ul>
+
+    <h3>Version 1.0.0 — initial release</h3>
+    <ul>
+      <li>Real-time parameter scanning loop (Transforms, colliders, lights, scripts).</li>
+      <li>6-tab PlaySync Studio master workbench with WAS → NOW diff tables.</li>
+      <li>Automatic Quick Restore Window popup upon exiting Play Mode.</li>
+      <li>Smart Scene Conflict Guard with amber warning badges.</li>
+      <li>In-Inspector live change status header with an "Apply Now" button.</li>
+      <li>Game Balance Preset Vault with ScriptableObject asset serialization.</li>
+      <li>25-Session Flight Recorder local history.</li>
+      <li>Zero-Click Auto-Save Rule Matrix by type, tag, and <code>[AutoSavePlayMode]</code>.</li>
+      <li>C# code patch generator with 1-click clipboard copy.</li>
+      <li>Standalone team-ready dark-theme HTML report generator.</li>
+      <li>Interactive sandbox demo scene generator.</li>
+    </ul>
+
+    <footer class="site-footer">
+      PlaySync Pro · A ByteLura product · Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a> · Documentation for product release 1.0.1
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>

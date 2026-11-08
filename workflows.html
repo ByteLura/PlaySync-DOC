@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workflows &amp; Tips — PlaySync Pro — ByteLura</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <span class="product">PlaySync Pro</span>
+  <span class="tagline">Play Mode changes, kept — a Unity editor extension by ByteLura</span>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="nav-label">Documentation</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quick-start.html">Quick Start</a>
+      <a href="features.html">Features</a>
+      <a href="workflows.html" class="active">Workflows &amp; Tips</a>
+      <a href="scripting-api.html">Scripting API</a>
+      <a href="compatibility.html">Compatibility &amp; Limits</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="side-note">
+      PlaySync Pro is a ByteLura product.<br>
+      Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Workflows &amp; Pro Tips</h1>
+    <p class="lede">Production workflows from the product's own guides: balancing, level staging, large-project tuning, prefab overrides, and the Undo safety net.</p>
+
+    <h2>1. Game balancing &amp; A/B testing</h2>
+    <p>Game balancing is an iterative process. Test gameplay feel live, save multiple profiles, and switch between them instantly:</p>
+    <ol>
+      <li>Enter Play Mode and test your character or weapon feel.</li>
+      <li>Tweak movement speed, jump height, and recoil sliders in the Inspector.</li>
+      <li>When you reach a configuration you like, click <strong>Save as Preset</strong> in the HUD.</li>
+      <li>Name your preset (for example, "Player_Arcade_Fast").</li>
+      <li>Repeat for an alternate configuration (for example, "Player_Simulation_Heavy").</li>
+      <li>In Edit Mode, open the Preset Vault (<kbd>Ctrl+Alt+P</kbd> / <kbd>Cmd+Option+P</kbd>) and switch between profiles with one click — compare gameplay feel without duplicate scenes.</li>
+    </ol>
+
+    <h2>2. Level design &amp; lighting staging</h2>
+    <p>Level designers and lighting artists can position props and align colliders live:</p>
+    <ol>
+      <li>Walk your player character through the scene in Play Mode.</li>
+      <li>If a platform is too far or a doorway too narrow, grab the object in the Scene view and move or scale it live.</li>
+      <li>Tweak PointLight and SpotLight intensities and ranges while walking through dark areas.</li>
+      <li>Add <code>UnityEngine.Light</code> to your Auto-Save Rule Matrix so light tweaks persist instantly on exit, without prompting.</li>
+    </ol>
+
+    <h2>3. Large projects — keep tracking overhead at zero</h2>
+    <p>On large-scale projects with hundreds of complex runtime MonoBehaviours, character rigs, or behaviour-tree nodes:</p>
+    <ol>
+      <li>Open <span class="menu-path">Tools &gt; ByteLura &gt; PlaySync &gt; PlaySync Studio &gt; Settings</span> (or <span class="menu-path">Edit &gt; Preferences &gt; PlaySync</span>).</li>
+      <li>Set <strong>Tracking Scope</strong> to <strong>Active Selection Only</strong>.</li>
+      <li>PlaySync then exclusively monitors the specific GameObjects you select in the Hierarchy — documented as 0.00&nbsp;ms idle overhead during intense gameplay profiling.</li>
+    </ol>
+    <p>Two further scopes exist since release 1.0.1: <strong>All Scene Objects</strong> and <strong>Marked Attributes Only</strong>. Live background polling in Play Mode is opt-in and off by default, so gameplay testing carries no polling cost unless you turn it on.</p>
+
+    <h2>4. Prefab instance overrides</h2>
+    <ul>
+      <li>When you tweak a prefab instance in Play Mode, PlaySync Pro tracks the instance overrides.</li>
+      <li>Restoring writes directly to the scene instance <em>without breaking the root prefab link</em>.</li>
+      <li>Use the standard Unity Inspector controls to apply overrides to the source asset if you want them there — PlaySync restores to the instance; pushing to the prefab asset stays a normal Unity action.</li>
+    </ul>
+
+    <h2>5. Safety — 100% native Undo</h2>
+    <ul>
+      <li>Every restore operation calls <code>Undo.RecordObject()</code> before writing values.</li>
+      <li>If you ever commit a batch of changes by mistake, press <kbd>Ctrl+Z</kbd> / <kbd>Cmd+Z</kbd> in the Unity Editor to revert all objects back to their pre-restore state.</li>
+    </ul>
+    <div class="callout">
+      <strong>The pattern to build on</strong>
+      Tweak live → review the WAS vs NOW diff → commit only what you meant → keep the rest out. Presets and the Flight Recorder mean an experiment is never a one-way door.
+    </div>
+
+    <footer class="site-footer">
+      PlaySync Pro · A ByteLura product · Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a> · Documentation for product release 1.0.1
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,229 @@
+/* PlaySync Pro — documentation site (ByteLura) */
+:root {
+  --ink: #1c2430;
+  --ink-soft: #45536a;
+  --paper: #ffffff;
+  --wash: #f4f6f9;
+  --line: #d9e0ea;
+  --accent: #b3541e;
+  --accent-soft: #fdf1e7;
+  --code-bg: #141a23;
+  --code-ink: #dbe4f0;
+  --sidebar-w: 250px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--wash);
+  line-height: 1.62;
+  font-size: 16px;
+}
+
+/* ---------- header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  border-bottom: 3px solid var(--accent);
+}
+.site-header .product {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.site-header .tagline {
+  color: #b9c4d4;
+  font-size: 0.88rem;
+}
+
+/* ---------- layout ---------- */
+.layout {
+  display: flex;
+  align-items: stretch;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ---------- sidebar ---------- */
+.sidebar {
+  width: var(--sidebar-w);
+  flex: 0 0 var(--sidebar-w);
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+  padding: 1.4rem 0 2rem;
+}
+.sidebar .nav-label {
+  padding: 0 1.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
+}
+.sidebar nav a {
+  display: block;
+  padding: 0.5rem 1.3rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-left: 3px solid transparent;
+}
+.sidebar nav a:hover { background: var(--wash); }
+.sidebar nav a.active {
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 600;
+}
+.sidebar .side-note {
+  margin: 1.6rem 1.3rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.sidebar .side-note a { color: var(--accent); }
+
+/* ---------- content ---------- */
+.content {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: var(--paper);
+  padding: 2rem 2.6rem 3rem;
+}
+.content h1 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+}
+.content h2 {
+  font-size: 1.3rem;
+  margin: 2.2rem 0 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line);
+}
+.content h3 {
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.4rem;
+}
+.content p { margin: 0.55rem 0; }
+.content ul, .content ol { margin: 0.5rem 0 0.9rem; padding-left: 1.5rem; }
+.content li { margin: 0.28rem 0; }
+.content a { color: var(--accent); }
+.lede { font-size: 1.08rem; color: var(--ink-soft); margin-bottom: 1.2rem; }
+
+.callout {
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  padding: 0.8rem 1.1rem;
+  margin: 1.1rem 0;
+  font-size: 0.95rem;
+}
+.callout strong { display: block; margin-bottom: 0.2rem; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0 0.4rem;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  background: var(--paper);
+}
+.card h3 { margin: 0 0 0.35rem; font-size: 0.98rem; }
+.card p { font-size: 0.88rem; color: var(--ink-soft); margin: 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.8rem 0 1.2rem;
+  font-size: 0.94rem;
+}
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--wash); font-weight: 600; }
+
+kbd {
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 0.05rem 0.38rem;
+  font-family: Consolas, "SF Mono", Menlo, monospace;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+code {
+  font-family: Consolas, "SF Mono", Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--wash);
+  padding: 0.08rem 0.32rem;
+  border-radius: 4px;
+}
+pre {
+  background: var(--code-bg);
+  color: var(--code-ink);
+  border-radius: 6px;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  margin: 0.8rem 0 1.2rem;
+  line-height: 1.5;
+}
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: 0.88rem;
+}
+.menu-path {
+  font-family: Consolas, "SF Mono", Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--wash);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 2.6rem;
+  padding-top: 1rem;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- narrow screens ---------- */
+@media (max-width: 760px) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding: 0.9rem 0 1rem;
+  }
+  .sidebar nav a { display: inline-block; border-left: none; border-bottom: 3px solid transparent; padding: 0.35rem 0.7rem; }
+  .sidebar nav a.active { border-bottom-color: var(--accent); }
+  .sidebar .side-note { display: none; }
+  .content { padding: 1.4rem 1.1rem 2.2rem; }
+  .site-header { position: static; flex-wrap: wrap; }
+}

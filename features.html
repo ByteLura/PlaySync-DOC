@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Features — PlaySync Pro — ByteLura</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <span class="product">PlaySync Pro</span>
+  <span class="tagline">Play Mode changes, kept — a Unity editor extension by ByteLura</span>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="nav-label">Documentation</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quick-start.html">Quick Start</a>
+      <a href="features.html" class="active">Features</a>
+      <a href="workflows.html">Workflows &amp; Tips</a>
+      <a href="scripting-api.html">Scripting API</a>
+      <a href="compatibility.html">Compatibility &amp; Limits</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="side-note">
+      PlaySync Pro is a ByteLura product.<br>
+      Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Features — the eight core modules</h1>
+    <p class="lede">Every tool lives under <span class="menu-path">Tools &gt; ByteLura &gt; PlaySync</span> in the Unity menu bar. Shortcuts below are Windows / macOS pairs.</p>
+
+    <h2>Quick access</h2>
+    <table>
+      <tr><th>Tool</th><th>Shortcut</th><th>Purpose</th></tr>
+      <tr><td>PlaySync Studio</td><td><kbd>Ctrl+Alt+S</kbd> / <kbd>Cmd+Option+S</kbd></td><td>6-tab master workbench</td></tr>
+      <tr><td>Quick Restore Window</td><td><kbd>Ctrl+Alt+R</kbd> / <kbd>Cmd+Option+R</kbd></td><td>Automatic exit stager</td></tr>
+      <tr><td>Preset Vault</td><td><kbd>Ctrl+Alt+P</kbd> / <kbd>Cmd+Option+P</kbd></td><td>ScriptableObject presets</td></tr>
+      <tr><td>Flight Recorder</td><td>—</td><td>25-session time machine</td></tr>
+      <tr><td>Auto-Save Settings</td><td>—</td><td>Zero-click rule matrix</td></tr>
+      <tr><td>Welcome &amp; Hub</td><td>—</td><td>Demo scene setup and hub</td></tr>
+    </table>
+
+    <h2>1. Live Diff &amp; Staging Workbench — PlaySync Studio</h2>
+    <p>Deep real-time parameter tracking across Transforms, physics colliders, audio, lights, cameras, and custom MonoBehaviours, documented at under 0.1&nbsp;ms frame impact.</p>
+    <ul>
+      <li><strong>Side-by-side diff tree</strong> — WAS (Edit Mode) vs NOW (Play Mode) values.</li>
+      <li><strong>Granular commits</strong> — commit individual fields, single objects, or all safe rows.</li>
+      <li><strong>Search &amp; filter</strong> — by category: Transforms, Scripts, Components, Prefabs.</li>
+    </ul>
+
+    <h2>2. Quick Restore Window — automatic exit stager</h2>
+    <p>A lightweight popup that triggers automatically the moment you exit Play Mode.</p>
+    <ul>
+      <li><strong>Smart Conflict Guard</strong> — flags properties that were also modified in Edit Mode with amber warnings.</li>
+      <li><strong>1-click safe restore</strong> — applies non-conflicting properties instantly.</li>
+      <li><strong>100% native Undo</strong> — revert any restore operation with <kbd>Ctrl+Z</kbd> / <kbd>Cmd+Z</kbd>.</li>
+    </ul>
+
+    <h2>3. Direct Unity Inspector integration</h2>
+    <ul>
+      <li><strong>Embedded status banner</strong> — selecting a modified GameObject displays an active banner at the top of the standard Inspector.</li>
+      <li><strong>Quick Apply Now</strong> — commit an individual GameObject's changes without opening any window.</li>
+      <li><strong>SceneView floating HUD</strong> — an optional live change counter during gameplay sessions.</li>
+      <li><strong>Right-click context actions</strong> — right-click any component header to copy C# patches.</li>
+    </ul>
+
+    <h2>4. Game Balance Preset Vault</h2>
+    <p>Save entire balance configurations as native ScriptableObject assets (<code>.asset</code> files).</p>
+    <ul>
+      <li><strong>Instant A/B testing</strong> — swap player speeds, weapon spreads, or enemy stats.</li>
+      <li><strong>Multi-scene support</strong> — apply saved presets across multiple game levels.</li>
+      <li><strong>Version-control ready</strong> — presets serialize cleanly into Git with zero binary bloat.</li>
+    </ul>
+
+    <h2>5. 25-Session Flight Recorder — time machine</h2>
+    <p>An automatic local time machine that stores your previous 25 play sessions.</p>
+    <ul>
+      <li><strong>Background JSON logging</strong> — session changes are logged automatically in <code>Library/PlaySyncHistory/</code>.</li>
+      <li><strong>Time-machine rewind</strong> — revisit any previous run, inspect timestamps, and restore its tweaks.</li>
+      <li><strong>Zero repo pollution</strong> — history stays local to your machine and never enters your Git repository.</li>
+    </ul>
+
+    <h2>6. Zero-Click Auto-Save Rule Matrix</h2>
+    <p>Define automated persistence rules by component type, GameObject tag, or attribute.</p>
+    <ul>
+      <li><strong>Component type rules</strong> — always auto-persist Lights, Cameras, or Audio Managers.</li>
+      <li><strong>Tag rules</strong> — auto-persist all GameObjects with the "Player" or "LevelDesign" tag.</li>
+      <li><strong>Code attribute</strong> — decorate custom scripts with <code>[AutoSavePlayMode]</code>; see the <a href="scripting-api.html">Scripting API</a> page.</li>
+    </ul>
+
+    <h2>7. C# Initialization Patch Generator</h2>
+    <p>Found in the Studio's <strong>C# Patch Gen</strong> tab. Converts runtime tweaks directly into clean, formatted C# assignment code blocks.</p>
+    <ul>
+      <li>Supports Vector3, Quaternion.Euler, Color, AnimationCurve, and primitives.</li>
+      <li><strong>1-click clipboard copy</strong> — suited to hardcoding procedural spawn configurations.</li>
+    </ul>
+
+    <h2>8. Team-Ready HTML Change Reports</h2>
+    <p>Found in the Studio's <strong>HTML Report</strong> tab. Generates standalone, dark-themed HTML reports in under one second.</p>
+    <ul>
+      <li>Category breakdown statistics and side-by-side WAS vs NOW tables.</li>
+      <li><strong>Zero dependencies</strong> — a self-contained file, shareable over Slack, Jira, pull requests, and email.</li>
+    </ul>
+
+    <footer class="site-footer">
+      PlaySync Pro · A ByteLura product · Support: <a href="mailto:bytelura@gmail.com">bytelura@gmail.com</a> · Documentation for product release 1.0.1
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>
